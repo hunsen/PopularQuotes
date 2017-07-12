@@ -11,3 +11,6 @@ class PopularQuotes(scrapy.Spider):
                 'quote_text': quote.css('.quoteText::text').extract_first(),
                 'author': quote.css('a.authorOrTitle::text').extract_first()
             }
+        next_page = response.css('a.next_page::attr(href)').extract_first()
+        if next_page is not None:
+            yield response.follow(next_page, self.parse)

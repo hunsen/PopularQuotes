@@ -1,4 +1,5 @@
 # coding = UTF-8
+# Usage: scrapy runspider quotes_all.py -o quotes_all.json
 import scrapy
 
 class PopularQuotes(scrapy.Spider):
